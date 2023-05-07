@@ -1,12 +1,11 @@
 // Copyright 2021 NNTU-CS
 #include "train.h"
 
-void Train::addCage(bool light) { // добавить вагон с начальным состоянием лампочки
+void Train::addCage(bool light) {
   Cage* wagon = new Cage;
   wagon->next = nullptr;
   wagon->prev = nullptr;
   wagon->light = light;
-  
   if (first == nullptr) {
     first = wagon;
   } else {
@@ -22,7 +21,6 @@ void Train::addCage(bool light) { // добавить вагон с началь
       }
       copy->next = wagon;
       wagon->prev = copy;
-      
       wagon->next = first;
       first->prev  = wagon;
     }
@@ -32,14 +30,14 @@ void Train::addCage(bool light) { // добавить вагон с началь
 
 Train::Train(): first(nullptr), countOp(0) {}
 
-int Train::getLength() {// вычислить длину поезда
+int Train::getLength() {
     Cage* Wagon = first;
     if (Wagon->light == false) {
         Wagon->light = true;
     }
     Wagon = Wagon->next;
     int rez = 0;
-    int countWagon=2;
+    int countWagon = 2;
     countOp += 1;
     while (true) {
         while (Wagon->light == false) {
@@ -61,7 +59,6 @@ int Train::getLength() {// вычислить длину поезда
 }
 
 
-int Train::getOpCount() { // вернуть число переходов (из вагона в вагон)
+int Train::getOpCount() {
     return countOp;
 }
-#endif  // INCLUDE_TRAIN_H_
