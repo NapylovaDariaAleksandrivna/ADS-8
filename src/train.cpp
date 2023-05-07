@@ -40,20 +40,21 @@ int Train::getLength() {
     int countWagon = 1;
     countOp += 1;
     while (true) {
-        while (Wagon->light == false) {
+        if (Wagon->light == false) {
             Wagon = Wagon->next;
             countOp += 1;
             countWagon += 1;
-        }
-        Wagon->light = false;
-        rez = countWagon;
-        while (countWagon != 1) {
-            countOp += 1;
-            countWagon -= 1;
-            Wagon = Wagon->prev;
-        }
-        if (Wagon->light == false) {
-            return rez;
+        } else {
+            Wagon->light = false;
+            rez = countWagon;
+            while (countWagon != 0) {
+              countOp += 1;
+              countWagon -= 1;
+              Wagon = Wagon->prev;
+            }
+            if (Wagon->light == false) {
+              return rez+1;
+            }
         }
     }
 }
