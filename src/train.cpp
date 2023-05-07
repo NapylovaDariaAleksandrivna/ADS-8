@@ -37,7 +37,7 @@ int Train::getLength() {
     }
     Wagon = Wagon->next;
     int rez = 0;
-    int countWagon = 2;
+    int countWagon = 1;
     countOp += 1;
     while (true) {
         while (Wagon->light == false) {
