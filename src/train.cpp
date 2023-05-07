@@ -53,7 +53,7 @@ int Train::getLength() {
               Wagon = Wagon->prev;
             }
             if (Wagon->light == false) {
-              return rez+1;
+              return rez;
             }
         }
     }
