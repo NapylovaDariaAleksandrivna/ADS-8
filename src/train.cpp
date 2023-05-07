@@ -34,7 +34,7 @@ int Train::getLength() {
     Cage* Wagon = first;
     if (Wagon->light == false) {
         Wagon->light = true;
-    } 
+    }
     int rez = 0;
     int countWagon = 0;
     while (true) {
